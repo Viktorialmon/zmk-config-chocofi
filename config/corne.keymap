@@ -14,9 +14,8 @@
         compatible = "zmk,keymap";
 
         default_layer {
-
             bindings = <
-&none  &kp Q           &kp W           &kp F        &kp P             &kp B        &kp J      &kp L              &kp U         &kp Y            &kp SEMICOLON    &none
+&none  &kp Q           &kp W           &kp F        &kp P             &kp B        &kp J      &kp L              &kp U         &kp Y            &lt 4 SEMICOLON  &none
 &none  &mt LEFT_WIN A  &mt LEFT_ALT R  &mt LCTRL S  &mt LEFT_SHIFT T  &kp G        &kp M      &mt RIGHT_SHIFT N  &mt RCTRL E   &mt RIGHT_ALT I  &mt RIGHT_WIN O  &none
 &none  &kp Z           &kp X           &kp C        &kp D             &kp V        &kp K      &kp H              &kp COMMA     &kp DOT          &kp FSLH         &none
                                        &kp ESC      &lt 1 TAB         &kp SPACE    &kp ENTER  &lt 2 BACKSPACE    &lt 3 DELETE
@@ -24,7 +23,6 @@
         };
 
         nav_layer {
-
             bindings = <
 &none  &none         &none         &none      &none           &none     &kp K_REDO    &kp K_PASTE    &kp K_COPY     &kp K_CUT    &kp K_UNDO  &none
 &none  &kp LEFT_WIN  &kp LEFT_ALT  &kp LCTRL  &kp LEFT_SHIFT  &none     &kp CAPSLOCK  &kp LEFT       &kp DOWN       &kp UP       &kp RIGHT   &none
@@ -34,7 +32,6 @@
         };
 
         num_layer {
-
             bindings = <
 &none  &kp LEFT_BRACKET  &kp N7  &kp N8   &kp N9  &kp RIGHT_BRACKET    &none   &none            &none      &none          &none          &none
 &none  &kp APOSTROPHE    &kp N4  &kp N5   &kp N6  &kp EQUAL            &none   &kp RIGHT_SHIFT  &kp RCTRL  &kp RIGHT_ALT  &kp RIGHT_WIN  &none
@@ -62,12 +59,5 @@
         };
     };
 
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-
-        bluetooth-switch {
-            if-layers = <0 1 2 3>;
-            then-layer = <4>;
-        };
-    };
+    conditional_layers { compatible = "zmk,conditional-layers"; };
 };

@@ -17,6 +17,21 @@
 
             label = "FULL_LINE_CLEAR";
         };
+
+        PasteFromSysClipboard: PasteFromSysClipboard {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp DOUBLE_QUOTES &kp ASTERISK &kp P>;
+            label = "PASTEFROMSYSCLIPBOARD";
+        };
+
+        PasteToSysClipboard: PasteToSysClipboard {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp DOUBLE_QUOTES &kp ASTERISK &kp Y>, <&macro_press>;
+
+            label = "PASTETOSYSCLIPBOARD";
+        };
     };
 
     keymap {
@@ -76,21 +91,12 @@
             >;
         };
 
-        vscode_layer {
+        nvim_layer {
             bindings = <
-&none  &none         &none         &none      &none           &none     &none          &none      &none   &none  &kp LC(LS(E))  &none
-&none  &kp LEFT_WIN  &kp LEFT_ALT  &kp LCTRL  &kp LEFT_SHIFT  &none     &none          &kp W      &none   &none  &kp B          &none
-&none  &none         &none         &none      &none           &none     &none          &none      &none   &none  &kp LS(LC(P))  &none
-                                   &trans     &trans          &trans    &kp SEMICOLON  &kp COLON  &trans
-            >;
-        };
-
-        nvim_layer_wip {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+&none  &none         &none         &none      &none           &none     &none          &PasteFromSysClipboard  &PasteToSysClipboard  &none  &kp LC(LS(E))  &none
+&none  &kp LEFT_WIN  &kp LEFT_ALT  &kp LCTRL  &kp LEFT_SHIFT  &none     &none          &kp H                   &kp J                 &kp K  &kp L          &none
+&none  &none         &none         &none      &none           &none     &none          &kp HOME                &kp B                 &kp W  &kp END        &none
+                                   &trans     &trans          &trans    &kp SEMICOLON  &kp COLON               &trans
             >;
         };
     };
